@@ -27,7 +27,8 @@ Ce plugin a été conçu pour permettre la découpe des couches BDUni (vectoriel
 
 - **QGIS** ≥ 3.16
 - Python 3.x (fourni avec QGIS)
-- Aucune dépendance externe — uniquement les API QGIS et PyQt5 standard
+- Aucune dépendance externe — uniquement les API QGIS et Qt standard
+- Compatible Qt5/6
 
 ---
 
