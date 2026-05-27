@@ -2,15 +2,14 @@
 
 from __future__ import annotations
 
-from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtWidgets import (
     QDialog,
-    QDialogButtonBox,
     QLabel,
     QListWidget,
     QListWidgetItem,
     QVBoxLayout,
 )
+from ..qt_compat import Qt, QDialogButtonBox
 from qgis.core import QgsVectorLayer
 
 from ..traitement.parametres import lire_champs_uniques, sauver_champs_uniques
