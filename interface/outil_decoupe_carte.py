@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import math
 
-from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtGui import QColor, QCursor
 from qgis.PyQt.QtWidgets import QInputDialog, QApplication
+from ..qt_compat import Qt
 
 from qgis.core import (
     QgsCoordinateTransform,
