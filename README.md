@@ -114,5 +114,5 @@ Outil_Decoupe_QGIS/
 ## Contacts
 
 | Nom | Prénom | Mail | Fonction |
-|Mortier|Melanie||melanie.mortier@ign.fr|Chef de projet |
+| Mortier | Melanie | | melanie.mortier@ign.fr | Chef de projet |
 | De Bock | Axel | axel.debock@ign.fr | Concepteur Développeur |
