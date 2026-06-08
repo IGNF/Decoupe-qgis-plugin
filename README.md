@@ -11,7 +11,6 @@ Il fournit deux outils interactifs : la **découpe de tronçon linéaire** et la
 
 Ce plugin a été conçu pour répondre au besoin de saisie terrain BDUni : découper des objets vectoriels (tronçons de route, polygones) directement dans QGIS, en conservant la cohérence des attributs métier (identifiants uniques, plages d'adresses, dates, clés SpatiaLite).
 
-Ce plugin a été conçu pour permettre la découpe des couches BDUni (vectoriels : tronçons de routes, polygones) tout en conservant la cohérence des attributs métier (identifiants uniques, cleabs...).
 
 ### Fonctionnalités
 
