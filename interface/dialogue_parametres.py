@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
+from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtWidgets import (
     QDialog,
+    QDialogButtonBox,
     QLabel,
     QListWidget,
     QListWidgetItem,
     QVBoxLayout,
 )
-from ..qt_compat import Qt, QDialogButtonBox
 from qgis.core import QgsVectorLayer
 
 from ..traitement.parametres import lire_champs_uniques, sauver_champs_uniques
@@ -60,8 +61,8 @@ class FenetreParametres(QDialog):
         root.addWidget(self._list)
 
         buttons = QDialogButtonBox(
-            QDialogButtonBox.Ok | QDialogButtonBox.Cancel,
-            Qt.Horizontal,
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel,
+            Qt.Orientation.Horizontal,
         )
         buttons.accepted.connect(self._valider)
         buttons.rejected.connect(self.reject)
@@ -77,7 +78,7 @@ class FenetreParametres(QDialog):
             # Pas de couche : affiche les champs enregistrés en lecture seule
             for name in sorted(current):
                 item = QListWidgetItem(f"{name}  (enregistré)")
-                item.setFlags(Qt.ItemIsEnabled)
+                item.setFlags(Qt.ItemFlag.ItemIsEnabled)
                 self._list.addItem(item)
             return
 
@@ -85,8 +86,8 @@ class FenetreParametres(QDialog):
         for i in range(fields.count()):
             name = fields.field(i).name()
             item = QListWidgetItem(name)
-            item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
-            item.setCheckState(Qt.Checked if name in current else Qt.Unchecked)
+            item.setFlags(item.flags() | Qt.ItemFlag.ItemIsUserCheckable)
+            item.setCheckState(Qt.CheckState.Checked if name in current else Qt.CheckState.Unchecked)
             self._list.addItem(item)
 
     def _valider(self) -> None:
@@ -96,7 +97,7 @@ class FenetreParametres(QDialog):
         fields = []
         for i in range(self._list.count()):
             item = self._list.item(i)
-            if item.checkState() == Qt.Checked:
+            if item.checkState() == Qt.CheckState.Checked:
                 fields.append(item.text())
         sauver_champs_uniques(fields)
         self.accept()

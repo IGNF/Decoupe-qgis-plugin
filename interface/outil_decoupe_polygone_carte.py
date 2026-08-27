@@ -5,8 +5,8 @@ from __future__ import annotations
 import math
 from typing import List
 
+from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtGui import QColor, QCursor
-from ..qt_compat import Qt
 
 from qgis.core import (
     QgsCoordinateTransform,
@@ -73,7 +73,7 @@ class OutilDecoupePolygone(QgsMapTool):
         self._rb_cutline:  QgsRubberBand   | None = None   # ligne de coupe tracée
         self._vtx_markers: List[QgsVertexMarker]  = []     # marqueurs de sommets
 
-        self.setCursor(QCursor(Qt.CrossCursor))
+        self.setCursor(QCursor(Qt.CursorShape.CrossCursor))
 
 
 
@@ -87,13 +87,13 @@ class OutilDecoupePolygone(QgsMapTool):
         self._rb_cutline.addPoint(self._ecran_vers_carte(event.pos()))
 
     def canvasPressEvent(self, event: QgsMapMouseEvent) -> None:
-        if event.button() == Qt.LeftButton:
+        if event.button() == Qt.MouseButton.LeftButton:
             self._clic_gauche(event)
-        elif event.button() == Qt.RightButton:
+        elif event.button() == Qt.MouseButton.RightButton:
             self._clic_droit(event)
 
     def keyPressEvent(self, event) -> None:
-        if event.key() == Qt.Key_Escape:
+        if event.key() == Qt.Key.Key_Escape:
             self._annuler()
 
     def deactivate(self) -> None:
