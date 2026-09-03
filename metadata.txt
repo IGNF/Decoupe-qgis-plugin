@@ -1,7 +1,6 @@
 [general]
 name=Outil Découpe IGN
-qgisMinimumVersion=4.0
-qgisMaximumVersion=4.99
+qgisMinimumVersion=3.16
 description=Outil de découpe métier
 version=1.0.0
 author=IGN / Migration BDUni

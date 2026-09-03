@@ -200,12 +200,6 @@ def decouper_troncon(
     # Récupération du FID attribué par le fournisseur
     new_fid = feat2.id()
 
-    # Enregistrement de la relation ancêtre pour le plugin Espace Collaboratif.
-    # On stocke le FID de l'objet d'origine (positif) — le plugin Espace Collaboratif
-    # retrouvera le cleabs via SQLiteManager sans dépendre des attributs QGIS de la couche.
-    from .ancestor_registry import register as _register_ancestor
-    _register_ancestor(layer.id(), new_fid, feature.id())
-
     return ResultatDecoupe(
         original_fid=feature.id(),
         new_fid=new_fid,

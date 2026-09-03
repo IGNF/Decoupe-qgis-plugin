@@ -163,11 +163,6 @@ def decouper_polygone(
         if not layer.addFeature(feat_new):
             raise ErreurDecoupePolygone("Impossible de créer un nouvel objet dans la couche.")
         new_fids.append(feat_new.id())
-        # Enregistrement de la relation ancêtre pour le plugin Espace Collaboratif.
-        # On stocke le FID de l'objet d'origine (positif) — le plugin Espace Collaboratif
-        # retrouvera le cleabs via SQLiteManager sans dépendre des attributs QGIS de la couche.
-        from .ancestor_registry import register as _register_ancestor
-        _register_ancestor(layer.id(), feat_new.id(), feature.id())
 
     return ResultatDecoupePolygone(
         original_fid=feature.id(),

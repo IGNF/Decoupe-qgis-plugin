@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import math
 
-from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtGui import QColor, QCursor
 from qgis.PyQt.QtWidgets import QInputDialog, QApplication
+from ..qt_compat import Qt
 
 from qgis.core import (
     QgsCoordinateTransform,
@@ -72,7 +72,7 @@ class OutilDecoupeLigne(QgsMapTool):
         self._rubber_band:  QgsRubberBand  | None = None
         self._cut_marker:   QgsVertexMarker | None = None
 
-        self.setCursor(QCursor(Qt.CursorShape.CrossCursor))
+        self.setCursor(QCursor(Qt.CrossCursor))
 
 
     def canvasMoveEvent(self, event: QgsMapMouseEvent) -> None:
@@ -96,13 +96,13 @@ class OutilDecoupeLigne(QgsMapTool):
             self._afficher_marqueur(marker_pt, is_vtx)
 
     def canvasPressEvent(self, event: QgsMapMouseEvent) -> None:
-        if event.button() == Qt.MouseButton.LeftButton:
+        if event.button() == Qt.LeftButton:
             self._clic_gauche(event)
-        elif event.button() == Qt.MouseButton.RightButton:
+        elif event.button() == Qt.RightButton:
             self._clic_droit(event)
 
     def keyPressEvent(self, event) -> None:
-        if event.key() == Qt.Key.Key_Escape:
+        if event.key() == Qt.Key_Escape:
             self._annuler()
 
     def deactivate(self) -> None:

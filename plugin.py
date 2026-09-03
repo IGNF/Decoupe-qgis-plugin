@@ -194,4 +194,4 @@ class PluginDecoupe:
             self._iface.mainWindow(),
             layer if isinstance(layer, QgsVectorLayer) else None,
         )
-        dlg.exec()
+        dlg.exec_()
